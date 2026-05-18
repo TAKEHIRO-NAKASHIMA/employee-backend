@@ -57,4 +57,9 @@ public class Employee {
     public void setPosition(String position) {
         this.position = position;
     }
+
+    //    テスト用
+    public void setId(Long id) {
+        this.id = id;
+    }
 }

@@ -57,7 +57,12 @@ public class EmployeeService {
     }
 
     public void delete(Long id) {
-        employeeRepository.deleteById(id);
+
+        Employee employee = employeeRepository.findById(id)
+                .orElseThrow(() ->
+                        new ResourceNotFoundException("指定された社員が存在しません"));
+
+        employeeRepository.delete(employee);
     }
 
     private EmployeeResponse toResponse(Employee employee) {
